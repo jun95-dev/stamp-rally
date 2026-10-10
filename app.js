@@ -22,5 +22,10 @@ $("start").addEventListener("click",()=>{try{localStorage.setItem(KEY,JSON.strin
 $("answer-form").addEventListener("submit",e=>{e.preventDefault();const result=$("result");const input=$("answer").value.normalize("NFKC").replace(/[\s　]/g,"");result.className="result";if(collected.length<4){result.textContent="まずは4つのスタンプを全部集めてね！";result.classList.add("error")}else if(input===ANSWER){result.textContent="🎉 大正解！ たんけんコンプリート！ ゴールの係員にこの画面を見せてね。";result.classList.add("success")}else{result.textContent="おしい！ 集めた文字をポイント順につないでみよう。";result.classList.add("error")}});
 SPOTS.forEach((s,i)=>{const b=document.createElement("button");b.type="button";b.textContent=`POINT ${i+1} を取得`;b.addEventListener("click",()=>claim(s.id));$("demo-buttons").append(b)});
 $("reset").addEventListener("click",()=>{if(!confirm("獲得したスタンプをすべて消去しますか？"))return;collected=[];try{localStorage.removeItem(KEY)}catch{}$("answer").value="";$("result").textContent="";$("result").className="result";$("notice").textContent="デモ記録をリセットしました。";render()});
-const params=new URLSearchParams(location.search);const point=params.get("point");
+const params = new URLSearchParams(location.search);
+const point = params.get("point");
+const isAdmin = params.get("admin") === "1";
+
+// 管理者モードの場合だけデモ操作・リセット機能を表示
+$("admin-panel").hidden = !isAdmin;
 if(point){showGame();claim(point);history.replaceState(null,"",location.pathname)}else if(collected.length){showGame()}
