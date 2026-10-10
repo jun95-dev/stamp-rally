@@ -28,4 +28,10 @@ const isAdmin = params.get("admin") === "1";
 
 // 管理者モードの場合だけデモ操作・リセット機能を表示
 $("admin-panel").hidden = !isAdmin;
-if(point){showGame();claim(point);history.replaceState(null,"",location.pathname)}else if(collected.length){showGame()}
+if (point) {
+    showGame();
+    claim(point);
+    history.replaceState(null, "", location.pathname);
+} else if (collected.length > 0 || isAdmin) {
+    showGame();
+}
