@@ -1,0 +1,16 @@
+# macOSの自動生成ファイル
+.DS_Store
+
+# 個人用メモ
+admin.txt
+
+# ローカル設定ファイル
+.env
+.env.local
+
+# 作業用フォルダ
+backup/
+temp/
+
+# ログファイル
+*.log
