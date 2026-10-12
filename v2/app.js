@@ -15,6 +15,7 @@ const SPOTS = [
 
 // A版とは別の保存領域。スタンプ情報はブラウザ内にのみ保存します。
 const KEY = "forest-rally-demo-v2";
+const TEST_KEY = "stamp-rally-v2-reception-test";
 const $ = id => document.getElementById(id);
 
 function load() {
@@ -142,10 +143,13 @@ SPOTS.forEach((spot, index) => {
 });
 
 $("reset").addEventListener("click", () => {
-    if (!confirm("獲得したスタンプをすべて消去しますか？")) return;
+    if (!confirm("本編のスタンプと受付チュートリアルの記録をすべて消去しますか？")) return;
     collected = [];
-    try { localStorage.removeItem(KEY); } catch {}
-    $("notice").textContent = "デモ記録をリセットしました。";
+    try {
+        localStorage.removeItem(KEY);
+        localStorage.removeItem(TEST_KEY);
+    } catch {}
+    $("notice").textContent = "本編と受付チュートリアルの記録をリセットしました。";
     render();
 });
 
