@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#235c4b">
-  <title>親子でチャレンジ飛鳥山 スタンプラリー</title>
-  <link rel="stylesheet" href="./style.css?v=3">
-  <style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="theme-color" content="#235c4b">
+    <title>親子でチャレンジ飛鳥山 スタンプラリー</title>
+    <link rel="stylesheet" href="./style.css?v=3">
+    <style>
     /* B版で追加する画像レイヤー表示。既存のstyle.cssは変更不要 */
     .art-board { position: relative; width: 100%; aspect-ratio: 1 / 1; overflow: hidden; border-radius: 12px; background: #f4f7f1; border: 2px solid #d6e4d8; }
     .art-layer { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
@@ -16,7 +16,7 @@
     .art-board img { max-width: none; }
     .completion { margin-top: 16px; padding: 18px; text-align: center; border-radius: 12px; background: #fff3cf; color: #704600; font-weight: bold; font-size: 1.2rem; }
     .completion[hidden] { display: none; }
-  </style>
+    </style>
 </head>
 <body>
 <div class="shell">
@@ -61,8 +61,15 @@
           <div id="markers"></div>
         </div>
         <p class="hint">赤いスタンプは訪問済み！ 数字をタップするとポイント名が見られます。※8地点の位置は仮配置です。</p>
-      </section>
-      <section class="panel">
+            <a href="./map.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="primary"
+            style="display:block; text-align:center; text-decoration:none; margin-top:16px; padding:14px 18px; border-radius:12px;">
+            🗺️ 会場案内図を拡大して見る ↗
+            </a>
+    </section>
+    <section class="panel">
         <h2>ひみつの絵</h2>
         <p class="sub">スタンプを集めるたびに、絵が少しずつ現れるよ！</p>
         <div id="art-board" class="art-board" aria-label="取得したスタンプに応じて完成する絵">

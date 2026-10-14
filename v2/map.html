@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#235c4b">
+  <title>会場案内図｜親子でチャレンジ飛鳥山</title>
+  <link rel="stylesheet" href="./map.css">
+</head>
+<body>
+  <header id="map-top" class="site-header">
+    <div class="container">
+      <p class="eyebrow">親子でチャレンジ飛鳥山</p>
+      <h1>会場案内図</h1>
+      <p>地図の番号をタップすると、各アトラクションの説明に移動します。</p>
+      <a class="back-link" href="./index.html">← スタンプラリーに戻る</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="map-section" aria-labelledby="map-heading">
+      <h2 id="map-heading">アトラクションマップ</h2>
+      <p class="map-hint">左右にスクロールして拡大表示できます。番号をタップして詳細を確認してね！</p>
+      <div class="map-scroll" tabindex="0" aria-label="会場マップ。横にスクロールできます">
+        <div class="map-canvas">
+          <img src="./map.png" alt="飛鳥山公園の会場案内図。トイレ、公衆電話、交番などの設備アイコンが表示されています。" width="2017" height="780">
+          <!-- 仮配置です。実際の8地点に合わせて left / top を調整してください。 -->
+          <a class="point" style="left:13%;top:48%" href="#attraction-1" aria-label="ポイント1の説明へ">1</a>
+          <a class="point" style="left:25%;top:34%" href="#attraction-2" aria-label="ポイント2の説明へ">2</a>
+          <a class="point" style="left:35%;top:66%" href="#attraction-3" aria-label="ポイント3の説明へ">3</a>
+          <a class="point" style="left:48%;top:40%" href="#attraction-4" aria-label="ポイント4の説明へ">4</a>
+          <a class="point" style="left:60%;top:28%" href="#attraction-5" aria-label="ポイント5の説明へ">5</a>
+          <a class="point" style="left:70%;top:65%" href="#attraction-6" aria-label="ポイント6の説明へ">6</a>
+          <a class="point" style="left:81%;top:38%" href="#attraction-7" aria-label="ポイント7の説明へ">7</a>
+          <a class="point" style="left:91%;top:70%" href="#attraction-8" aria-label="ポイント8の説明へ">8</a>
+        </div>
+      </div>
+      <p class="map-note">※ポイントの位置・名称・説明文は仮設定です。実際の会場配置に合わせて編集してください。</p>
+    </section>
+
+    <section class="attractions" aria-labelledby="attractions-heading">
+      <h2 id="attractions-heading">アトラクションの紹介</h2>
+      <!-- 画像は images/attractions/point_01.jpg ～ point_08.jpg を用意すると表示されます。
+           未用意の段階でも画像欄に代替テキストが表示されます。 -->
+      <article id="attraction-1" class="attraction"><h3><span class="number">1</span> アトラクション①</h3><div class="attraction-image"><img src="./images/attractions/point_01.jpg" alt="アトラクション①の写真" loading="lazy" onerror="this.hidden=true"></div><p>ここにアトラクション①の遊び方・ルール・注意事項を記載してください。</p></article>
+      <article id="attraction-2" class="attraction"><h3><span class="number">2</span> アトラクション②</h3><div class="attraction-image"><img src="./images/attractions/point_02.jpg" alt="アトラクション②の写真" loading="lazy" onerror="this.hidden=true"></div><p>ここにアトラクション②の遊び方・ルール・注意事項を記載してください。</p></article>
+      <article id="attraction-3" class="attraction"><h3><span class="number">3</span> アトラクション③</h3><div class="attraction-image"><img src="./images/attractions/point_03.jpg" alt="アトラクション③の写真" loading="lazy" onerror="this.hidden=true"></div><p>ここにアトラクション③の遊び方・ルール・注意事項を記載してください。</p></article>
+      <article id="attraction-4" class="attraction"><h3><span class="number">4</span> アトラクション④</h3><div class="attraction-image"><img src="./images/attractions/point_04.jpg" alt="アトラクション④の写真" loading="lazy" onerror="this.hidden=true"></div><p>ここにアトラクション④の遊び方・ルール・注意事項を記載してください。</p></article>
+      <article id="attraction-5" class="attraction"><h3><span class="number">5</span> アトラクション⑤</h3><div class="attraction-image"><img src="./images/attractions/point_05.jpg" alt="アトラクション⑤の写真" loading="lazy" onerror="this.hidden=true"></div><p>ここにアトラクション⑤の遊び方・ルール・注意事項を記載してください。</p></article>
+      <article id="attraction-6" class="attraction"><h3><span class="number">6</span> アトラクション⑥</h3><div class="attraction-image"><img src="./images/attractions/point_06.jpg" alt="アトラクション⑥の写真" loading="lazy" onerror="this.hidden=true"></div><p>ここにアトラクション⑥の遊び方・ルール・注意事項を記載してください。</p></article>
+      <article id="attraction-7" class="attraction"><h3><span class="number">7</span> アトラクション⑦</h3><div class="attraction-image"><img src="./images/attractions/point_07.jpg" alt="アトラクション⑦の写真" loading="lazy" onerror="this.hidden=true"></div><p>ここにアトラクション⑦の遊び方・ルール・注意事項を記載してください。</p></article>
+      <article id="attraction-8" class="attraction"><h3><span class="number">8</span> アトラクション⑧</h3><div class="attraction-image"><img src="./images/attractions/point_08.jpg" alt="アトラクション⑧の写真" loading="lazy" onerror="this.hidden=true"></div><p>ここにアトラクション⑧の遊び方・ルール・注意事項を記載してください。</p></article>
+    </section>
+    <p class="bottom-back"><a href="./index.html">← スタンプラリーに戻る</a></p>
+  </main>
+  <a href="#map-top" class="to-top" id="to-top" aria-label="マップへ戻る">↑ マップへ戻る</a>
+  <script>
+    // 表示制御だけ。localStorageには一切アクセスしません。
+    const toTop = document.getElementById('to-top');
+    const toggleTop = () => toTop.classList.toggle('visible', window.scrollY > 260);
+    window.addEventListener('scroll', toggleTop, { passive: true });
+    toggleTop();
+  </script>
+</body>
+</html>

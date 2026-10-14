@@ -1,0 +1,37 @@
+:root { color-scheme: light; --green:#235c4b; --pale:#f4f8f2; --ink:#24382f; }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; scroll-padding-top:14px; }
+body { margin:0; background:#f5f7f4; color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif; line-height:1.7; }
+a { color:var(--green); }
+.container { max-width:980px; margin:0 auto; padding:0 16px; }
+.site-header { background:var(--green); color:white; padding:25px 0 22px; }
+.site-header h1 { margin:0 0 5px; font-size:clamp(1.5rem,5vw,2rem); }
+.site-header p { margin:5px 0 12px; }
+.eyebrow { font-size:.8rem; opacity:.85; letter-spacing:.08em; }
+.back-link { display:inline-block; padding:9px 14px; border-radius:9px; background:white; color:var(--green); font-weight:700; text-decoration:none; }
+.map-section,.attraction { background:white; border:1px solid #dce8de; border-radius:14px; box-shadow:0 2px 8px #203b2810; }
+.map-section { margin:20px 0 28px; padding:16px; }
+h2 { margin:0 0 8px; font-size:1.35rem; }
+.map-hint,.map-note { font-size:.9rem; color:#56695d; }
+.map-hint { margin:0 0 12px; }
+.map-note { margin:10px 0 0; }
+.map-scroll { overflow-x:auto; overflow-y:hidden; border:1px solid #e2e9e3; border-radius:10px; background:white; -webkit-overflow-scrolling:touch; }
+.map-canvas { position:relative; width:100%; min-width:950px; aspect-ratio:2017 / 780; }
+.map-canvas img { display:block; width:100%; height:100%; object-fit:contain; }
+.point { position:absolute; transform:translate(-50%,-50%); display:flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius:50%; border:3px solid white; background:#e44c36; color:white; font-size:1.05rem; font-weight:800; text-decoration:none; box-shadow:0 2px 7px #0005; z-index:1; }
+.point:hover,.point:focus-visible { background:#ac291b; outline:3px solid #ffcc55; outline-offset:2px; }
+.attractions { margin-bottom:35px; }
+.attractions > h2 { margin:0 0 14px; }
+.attraction { padding:17px; margin-bottom:16px; scroll-margin-top:12px; }
+.attraction:target { outline:3px solid #f5bb43; }
+.attraction h3 { display:flex; align-items:center; gap:10px; margin:0 0 12px; font-size:1.18rem; }
+.number { display:inline-grid; place-items:center; width:34px; height:34px; border-radius:50%; background:#e44c36; color:white; flex:none; }
+.attraction-image { min-height:180px; max-width:650px; border-radius:10px; overflow:hidden; background:#edf2eb; display:flex; align-items:center; justify-content:center; }
+.attraction-image:has(img[hidden])::after { content:'アトラクションの画像をここに配置'; color:#7b8c7e; font-size:.9rem; }
+.attraction-image img { display:block; width:100%; height:auto; max-height:370px; object-fit:contain; }
+.attraction p { margin:12px 0 0; white-space:pre-line; }
+.bottom-back { text-align:center; margin:28px 0 110px; font-weight:700; }
+.to-top { position:fixed; right:16px; bottom:calc(18px + env(safe-area-inset-bottom)); z-index:5; padding:12px 16px; border-radius:999px; background:var(--green); color:white; font-weight:700; text-decoration:none; box-shadow:0 4px 16px #0004; opacity:0; visibility:hidden; pointer-events:none; transition:opacity .2s,visibility .2s; }
+.to-top.visible { opacity:1; visibility:visible; pointer-events:auto; }
+@media (min-width:800px) { .map-canvas { min-width:0; } }
+@media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
