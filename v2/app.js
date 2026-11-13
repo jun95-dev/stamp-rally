@@ -7,7 +7,7 @@ const SPOTS = [
     { id: "play-4q9v", name: "巨大オセロがえし", x: 84, y: 45, layer: 3 },
     { id: "lawn-6w5r", name: "親子で挑戦！チャレンジ30−30！", x: 30, y: 58, layer: 4 },
     { id: "point-5m2a", name: "めざせ頂上！ボールリフトチャレンジ", x: 27, y: 71, layer: 5 },
-    { id: "point-6n3b", name: "〜Ride de Shooting!!〜乗り物に乗って的を狙おう！", x: 15, y: 69, layer: 6 },
+    { id: "point-6n3b", name: "〜Ride de Shooting!!〜\n乗り物に乗って的を狙おう！", x: 15, y: 69, layer: 6 },
     { id: "point-7p4c", name: "シニアリーダーとあそぼう！", x: 17, y: 55, layer: 7 },
     { id: "point-8r5d", name: "渋沢探検隊！", x: 84, y: 57, layer: 8 }
 ];

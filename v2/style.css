@@ -358,3 +358,8 @@ footer {
         padding: 14px;
     }
 }
+
+#notice,
+.spot span {
+    white-space: pre-line;
+}
