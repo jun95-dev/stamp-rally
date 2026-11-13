@@ -1,19 +1,18 @@
 "use strict";
 
-// B版：マップ上の位置は仮配置（x/y は画像左上を原点とした％）
-// 既存4ポイントのQRコードIDは引き継ぎ、新しい4ポイントを追加します。
+// アトラクションの位置（x/y は画像左上を原点とした％）
 const SPOTS = [
     { id: "flower-8p3x", name: "めざせ！BIGけん玉マスター", x: 75, y: 55, layer: 1 },
     { id: "forest-7k2m", name: "名所めぐりフェイスクエスト", x: 74, y: 45, layer: 2 },
     { id: "play-4q9v", name: "巨大オセロがえし", x: 84, y: 45, layer: 3 },
-    { id: "lawn-6w5r", name: "親子で挑戦！チャレンジ30−30！", x: 38, y: 56, layer: 4 },
-    { id: "point-5m2a", name: "めざせ頂上！ボールリフトチャレンジ", x: 35, y: 69, layer: 5 },
-    { id: "point-6n3b", name: "〜Ride de Shooting!!〜乗り物に乗って的を狙おう！", x: 25, y: 66, layer: 6 },
-    { id: "point-7p4c", name: "シニアリーダーとあそぼう！", x: 25, y: 55, layer: 7 },
+    { id: "lawn-6w5r", name: "親子で挑戦！チャレンジ30−30！", x: 30, y: 58, layer: 4 },
+    { id: "point-5m2a", name: "めざせ頂上！ボールリフトチャレンジ", x: 27, y: 71, layer: 5 },
+    { id: "point-6n3b", name: "〜Ride de Shooting!!〜乗り物に乗って的を狙おう！", x: 15, y: 69, layer: 6 },
+    { id: "point-7p4c", name: "シニアリーダーとあそぼう！", x: 17, y: 55, layer: 7 },
     { id: "point-8r5d", name: "渋沢探検隊！", x: 84, y: 57, layer: 8 }
 ];
 
-// A版とは別の保存領域。スタンプ情報はブラウザ内にのみ保存します。
+// 保存領域。スタンプ情報はブラウザ内にのみ保存します。
 const KEY = "forest-rally-demo-v2";
 const TEST_KEY = "stamp-rally-v2-reception-test";
 const $ = id => document.getElementById(id);

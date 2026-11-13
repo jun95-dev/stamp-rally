@@ -7,7 +7,6 @@
     <title>親子でチャレンジ飛鳥山 スタンプラリー</title>
     <link rel="stylesheet" href="./style.css?v=3">
     <style>
-    /* B版で追加する画像レイヤー表示。既存のstyle.cssは変更不要 */
     .art-board { position: relative; width: 100%; aspect-ratio: 1 / 1; overflow: hidden; border-radius: 12px; background: #f4f7f1; border: 2px solid #d6e4d8; }
     .art-layer { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
     .art-empty { position: absolute; inset: 0; display: grid; place-items: center; padding: 20px; text-align: center; color: #59715f; }
@@ -21,7 +20,6 @@
 <body>
 <div class="shell">
   <header>
-    <div class="eyebrow">ONE DAY ADVENTURE · DEMO B</div>
     <h1>親子でチャレンジ飛鳥山<br>スタンプラリー</h1>
     <p>8つのポイントを巡って、ひみつの絵を完成させよう！</p>
   </header>
@@ -53,7 +51,7 @@
       <div id="notice" class="notice" role="status" aria-live="polite"></div>
       <section class="panel map-panel">
         <div class="section-head">
-          <h2>たんけんマップ</h2>
+          <h2>アトラクションマップ</h2>
           <span class="pill">会場案内図</span>
         </div>
         <div class="map-wrap">
@@ -88,7 +86,7 @@
       </details>
     </section>
   </main>
-  <footer>サンプル版 B · 参加者データはサーバーへ送信しません</footer>
+  <footer>参加者データはサーバーへ送信しません</footer>
 </div>
 <script src="./app.js?v=2" defer></script>
 </body>
