@@ -3,8 +3,8 @@
 // アトラクションの位置（x/y は画像左上を原点とした％）
 const SPOTS = [
     { id: "flower-8p3x", name: "めざせ！BIGけん玉マスター", x: 75, y: 55, layer: 1 },
-    { id: "forest-7k2m", name: "名所めぐりフェイスクエスト", x: 74, y: 45, layer: 2 },
-    { id: "play-4q9v", name: "巨大オセロがえし", x: 84, y: 45, layer: 3 },
+    { id: "forest-7k2m", name: "名所めぐりフェイスクエスト", x: 74, y: 40, layer: 2 },
+    { id: "play-4q9v", name: "巨大オセロがえし", x: 84, y: 42, layer: 3 },
     { id: "lawn-6w5r", name: "親子で挑戦！チャレンジ30−30！", x: 30, y: 58, layer: 4 },
     { id: "point-5m2a", name: "めざせ頂上！ボールリフトチャレンジ", x: 27, y: 71, layer: 5 },
     { id: "point-6n3b", name: "〜Ride de Shooting!!〜\n乗り物に乗って的を狙おう！", x: 15, y: 69, layer: 6 },

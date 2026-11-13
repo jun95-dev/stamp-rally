@@ -1,8 +1,19 @@
 :root { color-scheme: light; --green:#235c4b; --pale:#f4f8f2; --ink:#24382f; }
 * { box-sizing:border-box; }
-html { scroll-behavior:smooth; scroll-padding-top:14px; }
-body { margin:0; background:#f5f7f4; color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif; line-height:1.7; }
-a { color:var(--green); }
+html { 
+    scroll-behavior:smooth; scroll-padding-top:14px; 
+}
+
+body { 
+    margin:0; 
+    background:#f5f7f4; 
+    color:var(--ink); 
+    font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif; line-height:1.7; 
+}
+
+a { 
+    color:var(--green); 
+}
 .container { max-width:980px; margin:0 auto; padding:0 16px; }
 .site-header { background:var(--green); color:white; padding:25px 0 22px; }
 .site-header h1 { margin:0 0 5px; font-size:clamp(1.5rem,5vw,2rem); }
