@@ -363,3 +363,20 @@ footer {
 .spot span {
     white-space: pre-line;
 }
+
+/* 景品交換済み表示 */
+.prize-exchanged {
+    margin-top: 14px;
+    padding: 16px;
+    border: 2px solid #32805b;
+    border-radius: 12px;
+    background: #e8f5ec;
+    color: #235c4b;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 800;
+}
+
+.prize-exchanged[hidden] {
+    display: none;
+}

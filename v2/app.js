@@ -15,6 +15,7 @@ const SPOTS = [
 // 保存領域。スタンプ情報はブラウザ内にのみ保存します。
 const KEY = "forest-rally-demo-v2";
 const TEST_KEY = "stamp-rally-v2-reception-test";
+const EXCHANGE_KEY = "forest-rally-prize-exchanged-v1";
 const $ = id => document.getElementById(id);
 
 function load() {
@@ -29,6 +30,14 @@ function load() {
 }
 
 let collected = load();
+
+function isExchanged() {
+    try {
+        return localStorage.getItem(EXCHANGE_KEY) === "true";
+    } catch {
+        return false;
+    }
+}
 
 function save() {
     try {
@@ -94,7 +103,8 @@ function render() {
     $("art-count").textContent = count === SPOTS.length
         ? "8 / 8 ポイント達成！"
         : `絵の完成まであと${SPOTS.length - count}ポイント！`;
-    $("completion").hidden = count !== SPOTS.length;
+    $("completion").hidden = count !== SPOTS.length || isExchanged();
+    $("prize-exchanged").hidden = count !== SPOTS.length || !isExchanged();
 }
 
 function showGame() {
@@ -142,25 +152,75 @@ SPOTS.forEach((spot, index) => {
 });
 
 $("reset").addEventListener("click", () => {
-    if (!confirm("本編のスタンプと受付チュートリアルの記録をすべて消去しますか？")) return;
+    if (!confirm("スタンプ・受付チュートリアル・景品交換の記録をすべて消去しますか？")) return;
     collected = [];
     try {
         localStorage.removeItem(KEY);
         localStorage.removeItem(TEST_KEY);
+        localStorage.removeItem(EXCHANGE_KEY);
     } catch {}
-    $("notice").textContent = "本編と受付チュートリアルの記録をリセットしました。";
+    $("notice").textContent = "スタンプ・受付チュートリアル・景品交換の記録をリセットしました。";
     render();
 });
 
 const params = new URLSearchParams(location.search);
 const point = params.get("point");
+const exchange = params.get("exchange") === "1";
 const isAdmin = params.get("admin") === "1";
 $("admin-panel").hidden = !isAdmin;
 
-if (point) {
+if (exchange) {
+    showGame();
+    exchangePrize();
+    history.replaceState(
+        null, "",
+        location.pathname + (isAdmin ? "?admin=1" : "")
+    );
+
+} else if (point) {
     showGame();
     claim(point);
-    history.replaceState(null, "", location.pathname + (isAdmin ? "?admin=1" : ""));
-} else if (collected.length > 0 || isAdmin) {
+    history.replaceState(
+        null, "",
+        location.pathname + (isAdmin ? "?admin=1" : "")
+    );
+
+} else if (collected.length > 0 || isExchanged() || isAdmin) {
     showGame();
+}
+
+function exchangePrize() {
+    if (isExchanged()) {
+        $("notice").textContent =
+            "✓ この景品は交換済みです.";
+
+    } else if (collected.length !== SPOTS.length) {
+        $("notice").textContent =
+            `景品交換はまだできません。あと${SPOTS.length - collected.length}か所のスタンプが必要です。`;
+
+    } else {
+        try {
+            localStorage.setItem(EXCHANGE_KEY, "true");
+
+            $("notice").textContent =
+                "✓ 景品交換済みになりました。";
+        } catch {
+            $("notice").textContent =
+                "交換記録を保存できませんでした。係員にお知らせください。";
+        }
+    }
+
+    render();
+
+    // QR読み取り後、結果を確認しやすい位置へ移動
+    const target = isExchanged()
+        ? $("prize-exchanged")
+        : $("notice");
+
+    requestAnimationFrame(() => {
+    target.scrollIntoView({
+        block: "center",
+        behavior: "auto"
+    });
+});
 }
