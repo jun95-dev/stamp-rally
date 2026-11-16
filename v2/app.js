@@ -103,8 +103,10 @@ function render() {
     $("art-count").textContent = count === SPOTS.length
         ? "8 / 8 ポイント達成！"
         : `絵の完成まであと${SPOTS.length - count}ポイント！`;
-    $("completion").hidden = count !== SPOTS.length || isExchanged();
-    $("prize-exchanged").hidden = count !== SPOTS.length || !isExchanged();
+    // 完成メッセージはスタンプをすべて集めたときのみ表示
+    $("completion").hidden = count !== SPOTS.length;
+    // 景品交換済みメッセージは景品交換済みのときのみ表示
+    $("prize-exchanged").hidden = !isExchanged();
 }
 
 function showGame() {
@@ -192,18 +194,14 @@ if (exchange) {
 function exchangePrize() {
     if (isExchanged()) {
         $("notice").textContent =
-            "✓ この景品は交換済みです.";
-
-    } else if (collected.length !== SPOTS.length) {
-        $("notice").textContent =
-            `景品交換はまだできません。あと${SPOTS.length - collected.length}か所のスタンプが必要です。`;
+            "✓ この景品は交換済みです。";
 
     } else {
         try {
             localStorage.setItem(EXCHANGE_KEY, "true");
 
             $("notice").textContent =
-                "✓ 景品交換済みになりました。";
+                "✓ 景品交換済みになりました。スタンプラリーは引き続き楽しめます！";
         } catch {
             $("notice").textContent =
                 "交換記録を保存できませんでした。係員にお知らせください。";
@@ -218,9 +216,9 @@ function exchangePrize() {
         : $("notice");
 
     requestAnimationFrame(() => {
-    target.scrollIntoView({
-        block: "center",
-        behavior: "auto"
+        target.scrollIntoView({
+            block: "center",
+            behavior: "auto"
+        });
     });
-});
 }
