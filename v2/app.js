@@ -4,13 +4,13 @@
 const SPOTS = [
     { id: "flower-8p3x", name: "めざせ！BIGけん玉マスター", x: 75, y: 55, layer: 1 },
     { id: "forest-7k2m", name: "名所めぐりフェイスクエスト", x: 74, y: 40, layer: 2 },
-    { id: "play-4q9v", name: "巨大オセロがえし", x: 84, y: 42, layer: 3 },
-    { id: "lawn-6w5r", name: "親子で挑戦！チャレンジ30−30！", x: 30, y: 58, layer: 4 },
-    { id: "point-5m2a", name: "めざせ頂上！ボールリフトチャレンジ", x: 27, y: 71, layer: 5 },
-    { id: "point-6n3b", name: "〜Ride de Shooting!!〜\n乗り物に乗って的を狙おう！", x: 15, y: 69, layer: 6 },
-    { id: "point-7p4c", name: "シニアリーダーとあそぼう！", x: 17, y: 55, layer: 7 },
+    { id: "play-4q9v", name: "巨大オセロがえし", x: 84, y: 40, layer: 3 },
+    { id: "lawn-6w5r", name: "親子で挑戦！チャレンジ30−30！", x: 30, y: 56, layer: 4 },
+    { id: "point-5m2a", name: "めざせ頂上！ボールリフトチャレンジ", x: 27, y: 72, layer: 5 },
+    { id: "point-6n3b", name: "〜Ride de Shooting!!〜\n乗り物に乗って的を狙おう！", x: 15, y: 70, layer: 6 },
+    { id: "point-7p4c", name: "シニアリーダーとあそぼう！", x: 17, y: 54, layer: 7 },
     { id: "point-8r5d", name: "渋沢探検隊！", x: 84, y: 57, layer: 8 },
-    { id: "point-9s6e", name: "滝野川けいさつ", x: 10, y: 56, layer: 9 }
+    { id: "point-9s6e", name: "滝野川けいさつ", x: 8, y: 56, layer: 9 }
 ];
 
 // 保存領域。スタンプ情報はブラウザ内にのみ保存します。
