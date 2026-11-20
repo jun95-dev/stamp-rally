@@ -10,7 +10,7 @@ const SPOTS = [
     { id: "point-6n3b", name: "〜Ride de Shooting!!〜\n乗り物に乗って的を狙おう！", x: 15, y: 70, layer: 6 },
     { id: "point-7p4c", name: "シニアリーダーとあそぼう！", x: 17, y: 54, layer: 7 },
     { id: "point-8r5d", name: "渋沢探検隊！", x: 84, y: 57, layer: 8 },
-    { id: "point-9s6e", name: "滝野川けいさつ", x: 8, y: 56, layer: 9 }
+    { id: "point-9s6e", name: "滝野川けいさつ", x: 6, y: 55, layer: 9 }
 ];
 
 // 保存領域。スタンプ情報はブラウザ内にのみ保存します。
