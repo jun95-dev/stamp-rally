@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
     <meta name="theme-color" content="#235c4b">
     <title>第30回 親子でチャレンジ飛鳥山 スタンプラリー</title>
-    <link rel="stylesheet" href="./style.css?v=5">
+    <link rel="stylesheet" href="./style.css?v=6">
     <style>
     .art-board { position: relative; width: 100%; aspect-ratio: 1086 / 1448; overflow: hidden; border-radius: 12px; background: #f4f7f1; border: 2px solid #d6e4d8; }
     .art-layer { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
@@ -75,7 +75,31 @@
           <div id="art-layers"></div>
         </div>
         <p id="art-count" class="art-count">絵の完成まであと9ポイント！</p>
-        <div id="completion" class="completion" role="status" aria-live="polite" hidden>🎉 おめでとう！<br>9つのスタンプを集めて絵が完成したよ！</div>
+        <div id="completion" class="completion"
+            role="status" aria-live="polite" hidden>
+            🎉 おめでとう！<br>スタンプを集めて絵が完成したよ！
+            <div class="completion-download">
+                <a href="./images/anniversary-poster.png"
+                  download="親チャレ30周年記念イラスト.png">
+                    🎁 完成イラストをダウンロード
+                </a>
+            </div>
+        </div>
+        <!-- イベント終了後・未達成者向け -->
+        <div id="event-finished" class="completion"
+            role="status" hidden>
+            🎉 親チャレ30周年にご参加ありがとう！<br>
+            スタンプを全部集められなくても大丈夫！<br>
+            記念イラストをプレゼント！
+
+            <div class="completion-download">
+                <a href="./images/anniversary-poster.png"
+                  download="親チャレ30周年記念イラスト.png">
+                    🎁 記念イラストをダウンロード
+                </a>
+            </div>
+        </div>
+        
         <div id="prize-exchanged" class="prize-exchanged" role="status" aria-live="polite" hidden> ✓ 景品交換済み</div>
         <div id="spot-list" class="spot-list"></div>
       </section>
@@ -89,6 +113,6 @@
   </main>
   <footer>参加者データはサーバーへ送信しません</footer>
 </div>
-<script src="./app.js?v=10" defer></script>
+<script src="./app.js?v=11" defer></script>
 </body>
 </html>

@@ -109,13 +109,21 @@ function render() {
         layerImage.style.zIndex = String(layer);
         $("art-layers").append(layerImage);
     }
-    
+
     $("art-board").classList.toggle("has-layers", count > 0);
     $("art-count").textContent = count === SPOTS.length
         ? "9 / 9 ポイント達成！"
         : `絵の完成まであと${SPOTS.length - count}ポイント！`;
-    // 完成メッセージはスタンプをすべて集めたときのみ表示
-    $("completion").hidden = count !== SPOTS.length;
+
+    // スタンプ獲得数が全てのポイント数に達しているかどうかを判定
+    const completed = count === SPOTS.length;
+    // イベント終了時刻を判定（2026年11月29日 14:00:00 JST）
+    const eventEnded = Date.now() >= EVENT_END_TIME;
+
+    // スタンプ獲得数が全てのポイント数に達している場合はcompletion表示、ポイント未達且つイベント終了時刻を過ぎたらevent-finished表示
+    $("completion").hidden = !completed;
+    $("event-finished").hidden = completed || !eventEnded;
+
     // 景品交換済みメッセージは景品交換済みのときのみ表示
     $("prize-exchanged").hidden = !isExchanged();
 }
