@@ -19,6 +19,7 @@ const TEST_KEY = "stamp-rally-v2-reception-test";
 const EXCHANGE_KEY = "forest-rally-prize-exchanged-v1";
 const $ = id => document.getElementById(id);
 
+// ローカルストレージから獲得済みスタンプを読み込む
 function load() {
     try {
         const value = JSON.parse(localStorage.getItem(KEY) || "[]");
@@ -32,6 +33,7 @@ function load() {
 
 let collected = load();
 
+// ローカルストレージから景品交換済みかどうかを読み込む
 function isExchanged() {
     try {
         return localStorage.getItem(EXCHANGE_KEY) === "true";
@@ -40,6 +42,7 @@ function isExchanged() {
     }
 }
 
+// 獲得済みスタンプをローカルストレージに保存する
 function save() {
     try {
         localStorage.setItem(KEY, JSON.stringify(collected));
@@ -49,14 +52,21 @@ function save() {
     }
 }
 
+// 画面を更新する
 function render() {
     const count = collected.length;
+    // スタンプ獲得数と進捗バーを更新
     $("count").textContent = count;
+    // 進捗バーの幅を更新（0〜100％）
     $("progress").style.width = `${count / SPOTS.length * 100}%`;
+    // スタンプマップ・スタンプリスト・絵のレイヤーを更新
     $("markers").replaceChildren();
+    // スタンプリストと絵のレイヤーは、スタンプ獲得順に関係なく、常に同じ順番で表示する
     $("spot-list").replaceChildren();
+    // 絵のレイヤーは、スタンプ獲得済みのもののみ重ねる
     $("art-layers").replaceChildren();
 
+    // スタンプマップのマーカーを作成
     SPOTS.forEach((spot, index) => {
         const done = collected.includes(spot.id);
         const marker = document.createElement("button");
@@ -79,17 +89,6 @@ function render() {
         };
         $("markers").append(marker);
 
-        // 獲得済みレイヤーのみ重ねる。取得順に関係なく、常に同じ重なり順。
-        if (done) {
-            const layerImage = document.createElement("img");
-            layerImage.className = "art-layer";
-            layerImage.src = `./images/layers/layer_${String(spot.layer).padStart(2, "0")}.png`;
-            layerImage.alt = "";
-            layerImage.setAttribute("aria-hidden", "true");
-            layerImage.style.zIndex = String(spot.layer);
-            $("art-layers").append(layerImage);
-        }
-
         const row = document.createElement("div");
         row.className = "spot";
         const name = document.createElement("span");
@@ -100,6 +99,17 @@ function render() {
         $("spot-list").append(row);
     });
 
+    // スタンプ獲得数に応じて、レイヤー1から順番に表示
+    for (let layer = 1; layer <= count; layer++) {
+        const layerImage = document.createElement("img");
+        layerImage.className = "art-layer";
+        layerImage.src = `./images/layers/layer_${String(layer).padStart(2, "0")}.png`;
+        layerImage.alt = "";
+        layerImage.setAttribute("aria-hidden", "true");
+        layerImage.style.zIndex = String(layer);
+        $("art-layers").append(layerImage);
+    }
+    
     $("art-board").classList.toggle("has-layers", count > 0);
     $("art-count").textContent = count === SPOTS.length
         ? "9 / 9 ポイント達成！"
@@ -110,12 +120,14 @@ function render() {
     $("prize-exchanged").hidden = !isExchanged();
 }
 
+// ゲーム画面を表示する
 function showGame() {
     $("intro").hidden = true;
     $("game").hidden = false;
     render();
 }
 
+// スタンプを獲得する
 function claim(id) {
     const spot = SPOTS.find(item => item.id === id);
     if (!spot) {
@@ -146,6 +158,7 @@ $("start").addEventListener("click", () => {
     showGame();
 });
 
+// デバッグ用ボタンを作成する
 SPOTS.forEach((spot, index) => {
     const button = document.createElement("button");
     button.type = "button";
@@ -192,6 +205,7 @@ if (exchange) {
     showGame();
 }
 
+// 景品を交換する
 function exchangePrize() {
     if (isExchanged()) {
         $("notice").textContent =
