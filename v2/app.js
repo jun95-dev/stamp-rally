@@ -1,6 +1,6 @@
 "use strict";
 // イベント終了日時：2026年11月29日 14:00 JST
-const EVENT_END_TIME = new Date("2026-11-26T13:30:00+09:00").getTime();
+const EVENT_END_TIME = new Date("2026-11-29T14:00:00+09:00").getTime();
 
 // アトラクションの位置（x/y は画像左上を原点とした％）
 const SPOTS = [
